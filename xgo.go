@@ -305,6 +305,14 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 	args = append(args, []string{"-e", "EXT_GOPATH=" + strings.Join(paths, ":")}...)
 
 	args = append(args, []string{image, config.Repository}...)
+
+	var ret string
+	for i:=0; i<len(args);i++{
+		ret +=args[i]
+		ret +=" "
+	}
+
+	fmt.Printf("Cross compiling docker %s...\n", ret)
 	return run(exec.Command("docker", args...))
 }
 
