@@ -26,6 +26,7 @@ $FETCH $DIST_WIN_64    $DIST_WIN_64_SHA
 $FETCH $DIST_WIN_32    $DIST_WIN_32_SHA
 
 # Extract the 64 bit Linux package as the primary Go SDK
+echo "&&&&&&&&&"
 tar -C /usr/local -xzf `basename $DIST_LINUX_64`
 rm -f `basename $DIST_LINUX_64`
 

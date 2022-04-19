@@ -13,12 +13,12 @@
 #
 # Environment variables for local bootstrapping:
 #   GOROOT - Path to the lready installed Go runtime
-set -e
+set -e -x
 
 # Download, verify and install the root distribution if pulled remotely
+echo "............."
 if [ "$GOROOT" == "" ]; then
   $FETCH $ROOT_DIST $ROOT_DIST_SHA
-
   tar -C /usr/local -xzf `basename $ROOT_DIST`
   rm -f `basename $ROOT_DIST`
 
