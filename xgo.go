@@ -281,6 +281,15 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 	// Assemble and run the cross compilation command
 	fmt.Printf("Cross compiling %s...\n", config.Repository)
 
+	// add by Jacob begin
+	var compileStartPath string
+	lastSep := strings.LastIndex(folder,string(os.PathSeparator))
+	strTemp :=  folder[:lastSep]
+	// add by Jacob end
+
+	lastSep = strings.LastIndex(strTemp,string(os.PathSeparator))
+	compileStartPath = strTemp[:lastSep]
+
 	args := []string{
 		"run", "--rm",
 		"-v", folder + ":/build",
@@ -303,6 +312,8 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 		args = append(args, []string{"-v", fmt.Sprintf("%s:%s:ro", locals[i], mounts[i])}...)
 	}
 	args = append(args, []string{"-e", "EXT_GOPATH=" + strings.Join(paths, ":")}...)
+
+	args = append(args, []string{"-e", "COMPILE_START_PATH=" + compileStartPath}...)
 
 	args = append(args, []string{image, config.Repository}...)
 
