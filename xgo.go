@@ -314,6 +314,7 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 	args = append(args, []string{"-e", "EXT_GOPATH=" + strings.Join(paths, ":")}...)
 
 	args = append(args, []string{"-e", "COMPILE_START_PATH=" + compileStartPath}...)
+	fmt.Printf("COMPILE_START_PATH %s...\n", compileStartPath)
 
 	args = append(args, []string{image, config.Repository}...)
 

@@ -31,7 +31,6 @@ RUN \
   export DIST_LINUX_64=https://go.dev/dl/go1.16.5.linux-amd64.tar.gz && \
   export DIST_LINUX_64_SHA=b12c23023b68de22f74c0524f10b753e7b08b1504cb7e417eccebdd3fae49061 && \
   \
-  #$BOOTSTRAP_PURE
   $BOOTSTRAP
 
 ENV GO_VERSION 1165
