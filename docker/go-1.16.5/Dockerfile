@@ -3,7 +3,9 @@
 #
 # Released under the MIT license.
 
-FROM karalabe/xgo-base
+#FROM karalabe/xgo-base
+
+FROM xgo-base
 
 MAINTAINER Péter Szilágyi <peterke@gmail.com>
 
