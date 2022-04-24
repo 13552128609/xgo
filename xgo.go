@@ -293,6 +293,7 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 	args := []string{
 		"run", "--rm",
 		"-v", folder + ":/build",
+		"-v", compileStartPath + ":/"+compileStartPath,
 		"-v", depsCache + ":/deps-cache:ro",
 		"-e", "REPO_REMOTE=" + config.Remote,
 		"-e", "REPO_BRANCH=" + config.Branch,
