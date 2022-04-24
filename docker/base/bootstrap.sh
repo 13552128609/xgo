@@ -68,5 +68,7 @@ if [ "$DIST_WIN_32" != "" ]; then
 fi
 
 # Install xgo within the container to enable internal cross compilation
-echo "Installing xgo-in-xgo..."
-go get -u github.com/karalabe/xgo
+echo "&&&&&&&&&&&&&&&&&&&&&&&&&&&&end!"
+
+#echo "Installing xgo-in-xgo..."
+#go get -u github.com/karalabe/xgo
