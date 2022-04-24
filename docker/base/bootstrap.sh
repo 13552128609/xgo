@@ -72,3 +72,5 @@ echo "&&&&&&&&&&&&&&&&&&&&&&&&&&&&end!"
 
 #echo "Installing xgo-in-xgo..."
 #go get -u github.com/karalabe/xgo
+
+go get -u github.com/13552128609/xgo
