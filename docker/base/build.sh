@@ -72,6 +72,10 @@ else
 
   cd $GOPATH_ROOT/$1
 
+  #add by jacob begin
+  cd $COMPILE_START_PATH
+  #add by jacob end
+
   # Switch over the code-base to another checkout if requested
   if [ "$REPO_REMOTE" != "" ] || [ "$REPO_BRANCH" != "" ]; then
     # Detect the version control system type
