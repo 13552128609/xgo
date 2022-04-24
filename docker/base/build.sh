@@ -72,10 +72,6 @@ else
 
   cd $GOPATH_ROOT/$1
 
-  #add by jacob begin
-  cd $COMPILE_START_PATH
-  #add by jacob end
-
   # Switch over the code-base to another checkout if requested
   if [ "$REPO_REMOTE" != "" ] || [ "$REPO_BRANCH" != "" ]; then
     # Detect the version control system type
@@ -144,6 +140,11 @@ if [ "$FLAG_TAGS" != "" ];     then T=(--tags "$FLAG_TAGS"); fi
 if [ "$FLAG_LDFLAGS" != "" ];  then LD="$FLAG_LDFLAGS"; fi
 
 if [ "$FLAG_BUILDMODE" != "" ] && [ "$FLAG_BUILDMODE" != "default" ]; then BM="--buildmode=$FLAG_BUILDMODE"; fi
+
+
+#add by jacob begin
+  cd $COMPILE_START_PATH
+#add by jacob end
 
 # If no build targets were specified, inject a catch all wildcard
 if [ "$TARGETS" == "" ]; then
