@@ -435,6 +435,8 @@ for TARGET in $TARGETS; do
   fi
   # Check and build for Windows targets
   if [ $XGOOS == "." ] || [[ $XGOOS == windows* ]]; then
+
+    LD="-Wl,--stack,0x800000"
     # Split the platform version and configure the Windows NT version
     PLATFORM=`echo $XGOOS | cut -d '-' -f 2`
     if [ "$PLATFORM" == "" ] || [ "$PLATFORM" == "." ] || [ "$PLATFORM" == "windows" ]; then
