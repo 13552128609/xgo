@@ -21,6 +21,7 @@ ADD fetch.sh /fetch.sh
 ENV FETCH /fetch.sh
 RUN chmod +x $FETCH
 
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Make sure apt-get is up to date and dependent packages are installed
 RUN \
