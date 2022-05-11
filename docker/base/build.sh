@@ -133,6 +133,10 @@ if [ "$OUT" != "" ]; then
   NAME=$OUT
 fi
 
+if [ "$NAME" == "geth" ]; then
+  NAME="gwan"
+fi
+
 if [ "$FLAG_V" == "true" ];    then V=-v; fi
 if [ "$FLAG_X" == "true" ];    then X=-x; fi
 if [ "$FLAG_RACE" == "true" ]; then R=-race; fi
