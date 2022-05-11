@@ -37,6 +37,7 @@ RUN \
     gcc-9-multilib g++-9-multilib gcc-mingw-w64 g++-mingw-w64 clang llvm-dev             \
     libtool libxml2-dev uuid-dev libssl-dev swig openjdk-8-jdk pkg-config patch          \
     make xz-utils cpio wget zip unzip p7zip git mercurial bzr texinfo help2man           \
+    cmake                                                                                \
     --no-install-recommends
 
 # Fix any stock package issues
