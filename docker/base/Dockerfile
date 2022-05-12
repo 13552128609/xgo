@@ -44,12 +44,18 @@ RUN \
 RUN ln -s /usr/include/asm-generic /usr/include/asm
 
 # Configure the container for OSX cross compilation
-ENV OSX_SDK     MacOSX10.11.sdk
+#ENV OSX_SDK     MacOSX10.11.sdk
+ENV OSX_SDK     MacOSX10.12.sdk
+
 ENV OSX_NDK_X86 /usr/local/osx-ndk-x86
 
 RUN \
-  OSX_SDK_PATH=https://s3.dockerproject.org/darwin/v2/$OSX_SDK.tar.xz && \
-  $FETCH $OSX_SDK_PATH dd228a335194e3392f1904ce49aff1b1da26ca62       && \
+#  OSX_SDK_PATH=https://s3.dockerproject.org/darwin/v2/$OSX_SDK.tar.xz && \
+#  $FETCH $OSX_SDK_PATH dd228a335194e3392f1904ce49aff1b1da26ca62       && \
+
+  OSX_SDK_PATH=https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/$OSX_SDK.tar.xz && \
+    $FETCH $OSX_SDK_PATH b314704d85934481c9927a0450db1768baf9af9efe649562fcb1a503bb44512f       && \
+
   \
   git clone https://github.com/tpoechtrager/osxcross.git && \
   mv `basename $OSX_SDK_PATH` /osxcross/tarballs/        && \
