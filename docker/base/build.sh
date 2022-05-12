@@ -476,6 +476,8 @@ for TARGET in $TARGETS; do
   fi
   # Check and build for OSX targets
   if [ $XGOOS == "." ] || [[ $XGOOS == darwin* ]]; then
+
+    LD=""	  
     # Split the platform version and configure the deployment target
     PLATFORM=`echo $XGOOS | cut -d '-' -f 2`
     if [ "$PLATFORM" == "" ] || [ "$PLATFORM" == "." ] || [ "$PLATFORM" == "darwin" ]; then
