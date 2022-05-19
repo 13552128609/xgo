@@ -26,7 +26,6 @@ $FETCH $DIST_WIN_64    $DIST_WIN_64_SHA
 $FETCH $DIST_WIN_32    $DIST_WIN_32_SHA
 
 # Extract the 64 bit Linux package as the primary Go SDK
-echo "&&&&&&&&&"
 tar -C /usr/local -xzf `basename $DIST_LINUX_64`
 rm -f `basename $DIST_LINUX_64`
 
@@ -68,9 +67,7 @@ if [ "$DIST_WIN_32" != "" ]; then
 fi
 
 # Install xgo within the container to enable internal cross compilation
-echo "&&&&&&&&&&&&&&&&&&&&&&&&&&&&end!"
-
-#echo "Installing xgo-in-xgo..."
+echo "Installing xgo-in-xgo..."
 #go get -u github.com/karalabe/xgo
 
 go get -u github.com/13552128609/xgo

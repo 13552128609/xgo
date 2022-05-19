@@ -324,7 +324,6 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 		ret +=args[i]
 		ret +=" "
 	}
-	fmt.Printf("Jacob .........................")
 	fmt.Printf("Cross compiling docker %s...\n", ret)
 	return run(exec.Command("docker", args...))
 }

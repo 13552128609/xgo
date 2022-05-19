@@ -147,8 +147,8 @@ if [ "$FLAG_BUILDMODE" != "" ] && [ "$FLAG_BUILDMODE" != "default" ]; then BM="-
 
 
 #add by jacob begin
-echo "......1 $COMPILE_START_PATH"
-  cd $COMPILE_START_PATH
+echo "$COMPILE_START_PATH"
+cd $COMPILE_START_PATH
 #add by jacob end
 
 # If no build targets were specified, inject a catch all wildcard
@@ -461,9 +461,9 @@ for TARGET in $TARGETS; do
       export PKG_CONFIG_PATH=/usr/x86_64-w64-mingw32/lib/pkgconfig
 
       CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK
-      echo "....2 CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK"
+      echo "CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK"
       CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go build $V $X "${T[@]}" --ldflags="$V $LD" $R $BM -o "/build/$NAME-windows-$PLATFORM-amd64$R`extension windows`" ./$PACK
-      echo "....3 CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go build $V $X "${T[@]}" --ldflags="$V $LD" $R $BM -o "/build/$NAME-windows-$PLATFORM-amd64$R`extension windows`" ./$PACK"
+      echo "CC=x86_64-w64-mingw32-gcc-posix CXX=x86_64-w64-mingw32-g++-posix GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CGO_CFLAGS="$CGO_NTDEF" CGO_CXXFLAGS="$CGO_NTDEF" go build $V $X "${T[@]}" --ldflags="$V $LD" $R $BM -o "/build/$NAME-windows-$PLATFORM-amd64$R`extension windows`" ./$PACK"
     fi
     if [ $XGOARCH == "." ] || [ $XGOARCH == "386" ]; then
       echo "Compiling for windows-$PLATFORM/386..."
@@ -627,20 +627,20 @@ for TARGET in $TARGETS; do
 done
 
 # Clean up any leftovers for subsequent build invocations
-#echo "Cleaning up build environment..."
-#rm -rf /deps
-#
-#for dir in `ls /usr/local`; do
-#  keep=0
-#
-#  # Check against original folder contents
-#  for old in $USR_LOCAL_CONTENTS; do
-#    if [ "$old" == "$dir" ]; then
-#      keep=1
-#    fi
-#  done
-#  # Delete anything freshly generated
-#  if [ "$keep" == "0" ]; then
-#    rm -rf "/usr/local/$dir"
-#  fi
-#done
+echo "Cleaning up build environment..."
+rm -rf /deps
+
+for dir in `ls /usr/local`; do
+  keep=0
+
+  # Check against original folder contents
+  for old in $USR_LOCAL_CONTENTS; do
+    if [ "$old" == "$dir" ]; then
+      keep=1
+    fi
+  done
+  # Delete anything freshly generated
+  if [ "$keep" == "0" ]; then
+    rm -rf "/usr/local/$dir"
+  fi
+done
